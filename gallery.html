@@ -157,16 +157,16 @@
                     </div>
                 </div>
 
-                <!-- School -->
-                <div class="folder-card" data-category="school"
+                <!-- Baby Photo Shoot -->
+                <div class="folder-card" data-category="baby"
                     style="cursor: pointer; background: #fff; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; position: relative;">
                     <div style="height: 16rem; position: relative; overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
+                        <img src="https://images.unsplash.com/photo-1578632292335-df3abbb0d586?w=800&q=80"
                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"
                             class="folder-img" />
                         <div
                             style="position: absolute; top: 1rem; left: 1rem; background: rgba(255,255,255,0.9); padding: 0.5rem 1rem; border-radius: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: #713f12; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                            📁 2 Photos
+                            📁 5 Photos
                         </div>
                     </div>
                     <div style="padding: 1.5rem; position: relative;">
@@ -175,23 +175,22 @@
                             🖼️</div>
                         <h3
                             style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #111827; margin-bottom: 0.5rem;">
-                            School & College</h3>
+                            Baby Photo Shoot</h3>
                         <p style="color: #854d0e; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
                             Open Folder <span style="font-size: 1.25rem;">→</span></p>
                     </div>
                 </div>
 
-                <!-- Cultural -->
-                <div class="folder-card" data-category="cultural"
+                <!-- Anniversary -->
+                <div class="folder-card" data-category="anniversary"
                     style="cursor: pointer; background: #fff; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; position: relative;">
                     <div style="height: 16rem; position: relative; overflow: hidden;">
-                        <img src="https://cheerbucks.com/img/cultural.jpg"
-                            onerror="this.src='https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80'"
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80"
                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"
                             class="folder-img" />
                         <div
                             style="position: absolute; top: 1rem; left: 1rem; background: rgba(255,255,255,0.9); padding: 0.5rem 1rem; border-radius: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: #713f12; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                            📁 2 Photos
+                            📁 3 Photos
                         </div>
                     </div>
                     <div style="padding: 1.5rem; position: relative;">
@@ -200,7 +199,7 @@
                             🖼️</div>
                         <h3
                             style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #111827; margin-bottom: 0.5rem;">
-                            Cultural Programs</h3>
+                            Anniversary Celebrations</h3>
                         <p style="color: #854d0e; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
                             Open Folder <span style="font-size: 1.25rem;">→</span></p>
                     </div>
@@ -275,18 +274,22 @@
                     '/assets/Bithday/baby%201/decoration/3.jpg.jpeg',
                     '/assets/Bithday/cake/cake%202.jpeg'
                 ],
+                baby: [
+                    '/assets/Bithday/baby%201/2.jpg.jpeg',
+                    '/assets/Bithday/baby%203/b%20birthday.jpeg',
+                    '/assets/Bithday/baby%201/cake/1.jpg.jpeg',
+                    '/assets/Bithday/baby%202/6b.jpg.jpeg',
+                    'https://images.unsplash.com/photo-1578632292335-df3abbb0d586?w=800&q=80'
+                ],
+                anniversary: [
+                    'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
+                    'https://images.unsplash.com/photo-1522673603600-15fbb5b910f6?w=800&q=80',
+                    'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80'
+                ],
                 sports: [
                     'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80',
                     'https://images.unsplash.com/photo-1526676037777-05a232554f77?w=800&q=80',
                     'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80'
-                ],
-                school: [
-                    'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80',
-                    'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80'
-                ],
-                cultural: [
-                    'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
-                    'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80'
                 ]
             };
 
@@ -320,7 +323,8 @@
                         item.innerHTML = `
                             <img src="${src}" alt="${title} ${idx + 1}" style="width:100%; height:100%; object-fit:cover;" />
                             <div class="gallery-overlay">
-                                <div class="gallery-overlay-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                                <div class="gallery-overlay-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
                             </div>
                         `;
                         dynamicGallery.appendChild(item);
@@ -379,7 +383,7 @@
                     <h4 class="footer-heading">Services</h4>
                     <div class="footer-links"><a href="services.html">Wedding Events</a><a
                             href="services.html">Corporate Events</a><a href="services.html">Birthday Parties</a><a
-                            href="services.html">Cultural Programs</a></div>
+                            href="services.html">Baby Photo Shoot</a></div>
                 </div>
                 <div>
                     <h4 class="footer-heading">Contact</h4>

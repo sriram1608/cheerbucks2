@@ -40,8 +40,8 @@ const Footer = () => {
                             <li><Link to="/services" className="hover:text-primary-400 transition-colors">Wedding Events</Link></li>
                             <li><Link to="/services" className="hover:text-primary-400 transition-colors">Corporate Events</Link></li>
                             <li><Link to="/services" className="hover:text-primary-400 transition-colors">Birthday Parties</Link></li>
-                            <li><Link to="/services" className="hover:text-primary-400 transition-colors">Sports Events</Link></li>
-                            <li><Link to="/services" className="hover:text-primary-400 transition-colors">School & College Events</Link></li>
+                            <li><Link to="/services" className="hover:text-primary-400 transition-colors">Baby Photo Shoots</Link></li>
+                            <li><Link to="/services" className="hover:text-primary-400 transition-colors">Anniversaries</Link></li>
                         </ul>
                     </div>
 
@@ -62,7 +62,7 @@ const Footer = () => {
                             </li>
                             <li className="flex gap-3">
                                 <span className="text-primary-500 text-lg">📍</span>
-                                <span>N05/1st Floor, Nellayapar 1st Cross Street, Bharathipuram, Chrompet, Chennai - 600044</span>
+                                <span>No 7 guru krupa usha nagar second street ullagaram chennai :-600091</span>
                             </li>
                         </ul>
                     </div>

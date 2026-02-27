@@ -50,21 +50,36 @@ const categories = [
         ]
     },
     {
-        id: 'school',
-        title: 'School & College',
-        coverImage: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80',
+        id: 'baby-photoshoot',
+        title: 'Baby Photo Shoot',
+        coverImage: '/assets/Bithday/baby 1/2.jpg.jpeg',
         images: [
-            'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80',
-            'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80'
+            '/assets/Bithday/baby 1/2.jpg.jpeg',
+            '/assets/Bithday/baby 1/3.jpg (1).jpeg',
+            '/assets/Bithday/baby 1/4.jpg.jpeg',
+            '/assets/Bithday/baby 1/4a.jpg.jpeg',
+            '/assets/Bithday/baby 1/5.jpg.jpeg',
+            '/assets/Bithday/baby 1/6a.jpg.jpeg',
+            '/assets/Bithday/baby 1/7.jpg.jpeg'
         ]
     },
     {
-        id: 'cultural',
-        title: 'Cultural Programs',
-        coverImage: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
+        id: 'anniversary',
+        title: 'Anniversary',
+        coverImage: '/assets/Star/star%2012.jpeg',
         images: [
-            'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
-            'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80'
+            '/assets/Star/star%2012.jpeg',
+            '/assets/Star/star%204.jpeg',
+            '/assets/Star/star%205.jpeg',
+            '/assets/Star/star%206.jpeg',
+            '/assets/Star/star%207.jpeg',
+            '/assets/Star/star%208.jpeg',
+            '/assets/Star/star%209.jpeg',
+            '/assets/Star/star%2010.jpeg',
+            '/assets/Star/star%2011.jpeg',
+            '/assets/Star/star%2013.jpeg',
+            '/assets/Star/star%2014.jpeg',
+            '/assets/Star/star%2021.jpeg'
         ]
     }
 ];

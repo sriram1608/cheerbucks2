@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Heart, Briefcase, Gift, Trophy, BookOpen, Music } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Heart, Briefcase, Gift, Trophy, Camera, Users, X, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const services = [
@@ -9,42 +9,91 @@ const services = [
         desc: 'Magical ceremonies & elaborate receptions',
         icon: <Heart size={32} />,
         image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
-        color: 'from-pink-500/20 to-rose-500/20'
+        color: 'from-pink-500/20 to-rose-500/20',
+        images: [
+            '/assets/Star/WhatsApp%20Image%202026-02-23%20at%2011.14.25%20PM.jpeg',
+            '/assets/Star/WhatsApp%20Image%202026-02-23%20at%2011.14.26%20PM.jpeg',
+            'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
+            'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80'
+        ]
     },
     {
         title: 'Corporate Events',
         desc: 'Professional meets, conferences & seminars',
         icon: <Briefcase size={32} />,
         image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
-        color: 'from-blue-500/20 to-indigo-500/20'
+        color: 'from-blue-500/20 to-indigo-500/20',
+        images: [
+            '/assets/Star/star%2012.jpeg',
+            '/assets/Star/star%203.jpeg',
+            '/assets/Star/star%2021.jpeg',
+            'https://images.unsplash.com/photo-1515169067868-5387ec356754?w=800&q=80'
+        ]
     },
     {
         title: 'Birthday Celebrations',
         desc: 'Milestone birthdays made spectacular',
         icon: <Gift size={32} />,
         image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80',
-        color: 'from-yellow-500/20 to-amber-500/20'
+        color: 'from-yellow-500/20 to-amber-500/20',
+        images: [
+            '/assets/Bithday/decoration/m%20birthday.jpeg',
+            '/assets/Bithday/baby%201/2.jpg.jpeg',
+            '/assets/Bithday/baby%203/b%20birthday.jpeg',
+            '/assets/Bithday/baby%201/cake/1.jpg.jpeg',
+            '/assets/Bithday/baby%202/6b.jpg.jpeg',
+            '/assets/Bithday/baby%201/decoration/3.jpg.jpeg',
+            '/assets/Bithday/cake/cake%202.jpeg'
+        ]
     },
     {
         title: 'Sports Events',
         desc: 'Tournaments, marathons & sports days',
         icon: <Trophy size={32} />,
         image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80',
-        color: 'from-purple-500/20 to-fuchsia-500/20'
+        color: 'from-purple-500/20 to-fuchsia-500/20',
+        images: [
+            'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80',
+            'https://images.unsplash.com/photo-1526676037777-05a232554f77?w=800&q=80',
+            'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80'
+        ]
     },
     {
-        title: 'School & College',
-        desc: 'Annual days, fests & graduations',
-        icon: <BookOpen size={32} />,
-        image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80',
-        color: 'from-green-500/20 to-emerald-500/20'
+        title: 'Baby Photo Shoot',
+        desc: 'Capturing the precious first moments of your little ones',
+        icon: <Camera size={32} />,
+        image: '/assets/Bithday/baby 1/2.jpg.jpeg',
+        color: 'from-cyan-500/20 to-blue-500/20',
+        images: [
+            '/assets/Bithday/baby 1/2.jpg.jpeg',
+            '/assets/Bithday/baby 1/3.jpg (1).jpeg',
+            '/assets/Bithday/baby 1/4.jpg.jpeg',
+            '/assets/Bithday/baby 1/4a.jpg.jpeg',
+            '/assets/Bithday/baby 1/5.jpg.jpeg',
+            '/assets/Bithday/baby 1/6a.jpg.jpeg',
+            '/assets/Bithday/baby 1/7.jpg.jpeg'
+        ]
     },
     {
-        title: 'Cultural Programs',
-        desc: 'Traditional celebrations & functions',
-        icon: <Music size={32} />,
-        image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
-        color: 'from-orange-500/20 to-red-500/20'
+        title: 'Anniversary',
+        desc: 'Celebrating years of love and togetherness',
+        icon: <Heart size={32} />,
+        image: '/assets/Star/star%2012.jpeg',
+        color: 'from-rose-500/20 to-orange-500/20',
+        images: [
+            '/assets/Star/star%2012.jpeg',
+            '/assets/Star/star%204.jpeg',
+            '/assets/Star/star%205.jpeg',
+            '/assets/Star/star%206.jpeg',
+            '/assets/Star/star%207.jpeg',
+            '/assets/Star/star%208.jpeg',
+            '/assets/Star/star%209.jpeg',
+            '/assets/Star/star%2010.jpeg',
+            '/assets/Star/star%2011.jpeg',
+            '/assets/Star/star%2013.jpeg',
+            '/assets/Star/star%2014.jpeg',
+            '/assets/Star/star%2021.jpeg'
+        ]
     }
 ];
 
@@ -70,6 +119,18 @@ const itemVariants = {
 };
 
 const Services = () => {
+    const [selectedService, setSelectedService] = useState(null);
+
+    const openGallery = (service) => {
+        setSelectedService(service);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeGallery = () => {
+        setSelectedService(null);
+        document.body.style.overflow = 'unset';
+    };
+
     return (
         <section id="services" className="section-padding bg-gray-50">
             <div className="container">
@@ -138,7 +199,10 @@ const Services = () => {
                                 <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">{service.title}</h3>
                                 <p className="text-gray-600 line-clamp-2">{service.desc}</p>
 
-                                <div className="mt-6 flex items-center text-primary-600 font-medium group-hover:gap-2 transition-all cursor-pointer">
+                                <div
+                                    onClick={() => openGallery(service)}
+                                    className="mt-6 flex items-center text-primary-600 font-medium group-hover:gap-2 transition-all cursor-pointer"
+                                >
                                     <span>Learn more</span>
                                     <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                                 </div>
@@ -146,6 +210,84 @@ const Services = () => {
                         </motion.div>
                     ))}
                 </motion.div>
+
+                {/* Gallery Modal */}
+                <AnimatePresence>
+                    {selectedService && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                        >
+                            {/* Backdrop */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                onClick={closeGallery}
+                                className="absolute inset-0 bg-gray-900/95 backdrop-blur-md"
+                            />
+
+                            {/* Content Container */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.9, y: 30 }}
+                                className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+                            >
+                                {/* Modal Header */}
+                                <div className="p-6 md:p-8 flex items-center justify-between border-b border-gray-100 bg-white sticky top-0 z-20">
+                                    <div>
+                                        <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-2">
+                                            {selectedService.title.split(' ')[0]} <span className="text-primary-600 italic">{selectedService.title.split(' ').slice(1).join(' ')}</span>
+                                        </h3>
+                                        <p className="text-gray-600">{selectedService.desc}</p>
+                                    </div>
+                                    <button
+                                        onClick={closeGallery}
+                                        className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary-500 hover:text-white transition-all shadow-sm"
+                                    >
+                                        <X size={24} />
+                                    </button>
+                                </div>
+
+                                {/* Modal Content - Scrollable Gallery */}
+                                <div className="flex-grow overflow-y-auto p-6 md:p-8 bg-gray-50">
+                                    <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                                        {selectedService.images.map((src, idx) => (
+                                            <motion.div
+                                                key={idx}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: idx * 0.1 }}
+                                                className="break-inside-avoid overflow-hidden rounded-2xl shadow-md group relative h-auto"
+                                            >
+                                                <img
+                                                    src={src}
+                                                    alt={`${selectedService.title} Moment ${idx + 1}`}
+                                                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/10 transition-colors duration-300 pointer-events-none" />
+                                            </motion.div>
+                                        ))}
+                                    </div>
+
+                                    <div className="mt-12 text-center pb-8">
+                                        <Link
+                                            to="/gallery"
+                                            onClick={closeGallery}
+                                            className="inline-flex items-center gap-2 text-primary-600 font-bold hover:text-primary-800 transition-colors group"
+                                        >
+                                            View Full Gallery Folder
+                                            <ArrowLeft size={20} className="rotate-180 transform group-hover:translate-x-1 transition-transform" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 {/* CTA Banner integrated into services */}
                 <motion.div
